@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="appColor">#F9D136</color>
+    <color name="colorPrimary">#F9D136</color>
+    <color name="colorPrimaryDark">#ECC223</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorYellow">#F9D136</color>
+
+    <color name="colorDotbg">#EEEEEE</color>
+    <color name="txtColor">#8A8A8E</color>
+    <color name="colorGrey">#959595</color>
+    <color name="lightGrey">#e5e5e5</color>
+    <color name="black">#212121</color>
+    <color name="white">#ffffff</color>
+
+</resources>

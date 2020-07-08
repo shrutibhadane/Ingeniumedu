@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">IngeniumeduPro</string>
+    <string name="ingeniumedu">Ingeniumedu</string>
+    <string name="employee_name">Employee name</string>
+    <string name="employee_salary">Employee Salary</string>
+    <string name="employee_age">Employee Age</string>
+    <string name="data_unavailable">Data unavailable</string>
+    <string name="name">Name :</string>
+    <string name="salary">Salary :</string>
+    <string name="age">Age :</string>
+</resources>
