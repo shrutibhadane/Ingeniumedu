@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //initialize array list
         employeeDataModelList = new ArrayList<>();
 
         initView();
@@ -46,16 +47,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*
+    * initialize all view's here
+    * eg. TextView, ImageView
+    * */
     private void initView() {
         recyclerView = (RecyclerView) findViewById(R.id.rvAllDetails);
         tvNoData = (TextView) findViewById(R.id.tvNoData);
         animationProgress = (LottieAnimationView) findViewById(R.id.animationProgress);
     }
 
+    /*
+    * Api call for getting all employee details
+    * */
     private void getAllDetails() {
+        //start animation
         animationProgress.setVisibility(View.VISIBLE);
         animationProgress.playAnimation();
 
+        //api call to fetch data
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<EmployeeModel> call = apiService.getEmployeeDetails();
 
@@ -65,10 +75,12 @@ public class MainActivity extends AppCompatActivity {
                 employeeModel = (EmployeeModel) response.body();
                 employeeDataModelList = employeeModel.getData();
 
+                //stop animation
                 animationProgress.cancelAnimation();
                 animationProgress.setVisibility(View.GONE);
 
                 if (!employeeDataModelList.isEmpty()) {
+                    //show data in recyclerview
                     recyclerView.setVisibility(View.VISIBLE);
                     tvNoData.setVisibility(View.GONE);
 
@@ -77,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                     employeeAdapter = new EmployeeAdapter(MainActivity.this, employeeDataModelList);
                     recyclerView.setAdapter(employeeAdapter);
                 } else {
+
+                    //show no data available on empty list
                     recyclerView.setVisibility(View.GONE);
                     tvNoData.setVisibility(View.VISIBLE);
                 }
@@ -84,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<EmployeeModel> call, Throwable t) {
+                //stop animation
                 animationProgress.cancelAnimation();
                 animationProgress.setVisibility(View.GONE);
 

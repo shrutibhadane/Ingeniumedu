@@ -26,8 +26,21 @@ public class SplashActivity extends AppCompatActivity {
             actionBar.hide();
         }
 
-        animationProgress = findViewById(R.id.animationProgress);
+        initView();
 
+        animationTimer();
+    }
+
+    /*
+     * initialize all view's here
+     * eg. TextView, ImageView
+     * */
+    private void initView() {
+        animationProgress = findViewById(R.id.animationProgress);
+    }
+
+    private void animationTimer() {
+        //start animation
         animationProgress.playAnimation();
 
         //handler timeout for splash animation
@@ -40,6 +53,5 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         }, 3000);
-
     }
 }
